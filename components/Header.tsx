@@ -150,7 +150,7 @@ const Header: React.FC = () => {
             </div>
           </div>
           <div className="pt-4 pb-3 border-t border-gray-700 px-2 space-y-2">
-             <button className="w-full text-left text-gray-300 hover:bg-dark-card hover:text-white block px-3 py-2 rounded-md text-base font-medium">Log In</button>
+            //  <button className="w-full text-left text-gray-300 hover:bg-dark-card hover:text-white block px-3 py-2 rounded-md text-base font-medium">Log In</button>
             <button className="w-full text-left bg-brand-purple text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-violet-500">Sign Up for Free</button>
           </div>
         </div>

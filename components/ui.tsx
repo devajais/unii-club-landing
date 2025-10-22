@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 // --- Scroll Reveal FadeIn ---
 interface FadeInProps {
@@ -92,30 +93,35 @@ export const GlassIcon: React.FC<GlassIconProps> = ({ children, className = '' }
 };
 
 
-// --- Button (no changes needed) ---
+// --- Button ---
 interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   className?: string;
   variant?: 'primary' | 'secondary';
-  as?: 'button' | 'a';
+  as?: 'button' | 'a' | 'link';
   href?: string;
+  to?: string;
 }
 
-export const Button: React.FC<ButtonProps> = ({ children, onClick, className = '', variant = 'primary', as = 'button', href }) => {
+export const Button: React.FC<ButtonProps> = ({ children, onClick, className = '', variant = 'primary', as = 'button', href, to }) => {
   const baseClasses = 'inline-block px-8 py-4 text-lg font-bold rounded-lg transition-all transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-offset-dark-bg text-center';
   const variantClasses = {
     primary: 'bg-brand-purple text-white hover:bg-violet-500 focus:ring-brand-purple',
     secondary: 'bg-transparent border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white focus:ring-brand-blue',
   };
+  
+  const combinedClasses = `${baseClasses} ${variantClasses[variant]} ${className}`;
 
-  if (as === 'a') {
-    return (
-        <a href={href} className={`${baseClasses} ${variantClasses[variant]} ${className}`}>{children}</a>
-    )
+  if (as === 'link' && to) {
+    return <Link to={to} className={combinedClasses}>{children}</Link>;
   }
 
-  return <button onClick={onClick} className={`${baseClasses} ${variantClasses[variant]} ${className}`}>{children}</button>;
+  if (as === 'a') {
+    return <a href={href} className={combinedClasses}>{children}</a>;
+  }
+
+  return <button onClick={onClick} className={combinedClasses}>{children}</button>;
 };
 
 // --- Card (no changes needed) ---

@@ -8,6 +8,7 @@ import CampusAmbassadorPage from './pages/CampusAmbassadorPage';
 import ForCollegesPage from './pages/ForCollegesPage';
 import ForCompaniesPage from './pages/ForCompaniesPage';
 import AboutUsPage from './pages/AboutUsPage';
+import HeroParticles from './components/HeroParticles';
 
 const ScrollToTop = (): null => {
   const { pathname } = useLocation();
@@ -23,7 +24,12 @@ const App: React.FC = () => {
   return (
     <HashRouter>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen">
+      {/* Background color layer */}
+      <div className="fixed inset-0 -z-20 bg-dark-bg" />
+      {/* Particles layer */}
+      <HeroParticles />
+      {/* Content layer */}
+      <div className="relative z-0 flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow pt-20">
           <Routes>

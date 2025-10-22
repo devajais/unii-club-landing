@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Card, FadeIn, ShinyText, GlassIcon } from '../components/ui';
@@ -26,8 +25,8 @@ const HomePage: React.FC = () => {
           </FadeIn>
           <FadeIn delay={500}>
             <div className="mt-12 flex flex-col sm:flex-row justify-center items-center gap-4">
-              <Button variant="primary" as="a" href="#/students" className="w-full sm:w-auto">Start My Blueprint (for Students)</Button>
-              <Button variant="secondary" as="a" href="#/colleges" className="w-full sm:w-auto">Empower Your Campus (for Colleges)</Button>
+              <Button variant="primary" as="link" to="/students" className="w-full sm:w-auto">Start My Blueprint (for Students)</Button>
+              <Button variant="secondary" as="link" to="/colleges" className="w-full sm:w-auto">Empower Your Campus (for Colleges)</Button>
             </div>
           </FadeIn>
         </div>
